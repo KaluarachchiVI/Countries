@@ -1,10 +1,46 @@
-# Getting Started with Create React App
+https://countries-kappa-seven.vercel.app/
+:
+web link
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# REST Countries Explorer
+
+A React application for exploring country information using the REST Countries API.
+
+## Features
+
+- View all countries with key information
+- Search countries by name
+- Filter by region and status
+- View detailed country information
+- Dark/light theme toggle
+- Responsive design
+
+## Technologies Used
+
+- React with functional components and hooks
+- Material-UI for UI components
+- React Router for navigation
+- Axios for API requests
+- Framer Motion for animations
+
+## Setup Instructions
+
+### Prerequisites
+
+- Node.js (v14 or higher)
+- npm (v6 or higher) or yarn
+
+### Installation
+
+1. Clone the repository:
 
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `npm install`
+
+To install the dependancies.
 
 ### `npm start`
 
