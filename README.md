@@ -65,42 +65,33 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## API Usage
+This application uses the following endpoints from the REST Countries API:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+GET /all - Fetch all countries
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+GET /name/{name} - Search by country name
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+GET /region/{region} - Filter by region
 
-## Learn More
+GET /alpha/{code} - Get country by code
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+GET /independent?status={boolean} - Filter by independence status
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+##  Challenges and Solutions
+### Challenge 1: API Response Handling
+Issue: The API returns arrays even for single country requests, which caused initial rendering issues.
+Solution: Implemented consistent response handling that always expects an array and takes the first item when needed.
 
-### Code Splitting
+### Challenge 2: Border Countries Fetching
+Issue: Fetching multiple border countries required careful error handling.
+Solution: Created a separate API service function specifically for border countries with proper error fallbacks.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Challenge 3: Data Consistency
+Issue: Some country data fields were missing or formatted differently.
+Solution: Added comprehensive null checks and default values for all data displays.
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Challenge 4: Theme Persistence
+Issue: Theme preference wasn't persisting across page refreshes.
+Solution: Implemented localStorage to save user theme preference.
